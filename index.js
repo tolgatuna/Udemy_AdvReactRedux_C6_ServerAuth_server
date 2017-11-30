@@ -5,8 +5,12 @@ const http = require('http');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const router = require('./router');
+const mongoose = require('mongoose');
 
 const app = express();      // We create an instance of express
+
+// ## DB SETUP ##
+mongoose.connect('mongodb://192.168.20.73:auth/auth');
 
 // ## APP SETUP ##
 // Middleware of express declarations :
