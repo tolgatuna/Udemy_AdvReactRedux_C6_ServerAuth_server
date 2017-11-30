@@ -4,6 +4,7 @@ const express = require('express');
 const http = require('http');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
+const router = require('./router');
 
 const app = express();      // We create an instance of express
 
@@ -12,6 +13,7 @@ const app = express();      // We create an instance of express
 // Any incoming request will pass into morgan and bodyParser
 app.use(morgan('combined'));                // Morgan: Logging framework (using for debugging)
 app.use(bodyParser.json({type: '*/*'}));    // bodyParser: use for parse incoming request and ve say parse coming request as json
+router(app);
 
 // ## SERVER SETUP ##
 const port = process.env.PORT || 3090;  // Port setup
